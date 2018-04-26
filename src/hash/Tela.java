@@ -19,6 +19,7 @@ public class Tela {
 	    	int tamanhoEspalhamento = sc.nextInt();
 	    	//Colocar a construcao do hash aqui;
 	    	hash = new Hash(tamanhoEspalhamento, tamanho);
+	    	operacoes();
 		        
 	    }catch(Exception e) {
 	    	System.out.println(e.getMessage());
