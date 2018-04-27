@@ -25,6 +25,7 @@ public class Hash {
 		for (int i = modulo; i < tamanho; i++) {
 			hash[i][1] = i + 1;
 		}
+		hash[tamanho-1][1] = -2;
 	}
 
 	public void insere(int elemento) throws Exception{
@@ -140,7 +141,7 @@ public class Hash {
 
 	public void listarTodos() {
 		for (int i = 0; i < this.tamanho; i++) {
-			System.out.println("Índice: "+ i + " / Dado: " + hash[i][0] + " / Próximo: " + hash[i][1]);
+			System.out.println("Índice: "+ i + " / Dado: " + hash[i][0] + " / Próximo: " + (hash[i][1]));
 			//System.out.println("Proximo: " + hash[i][1]);
 		}
 	}
