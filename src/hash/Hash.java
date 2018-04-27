@@ -11,7 +11,8 @@ public class Hash {
 
 	public Hash(int modulo, int tamanho) throws Exception {
 		if (modulo * 3 >= tamanho) {
-			throw new Exception("O módulo deve ser menor!");
+			throw new Exception("O módulo deve ser, no mínimo, 3 vezes menor"
+					+ " que o tamanho total do Hash");
 		}
 		this.modulo = modulo;
 		this.tamanho = tamanho;
@@ -57,14 +58,14 @@ public class Hash {
 				}
 			}
 		}else{
-			throw new Exception("O hash está cheio!");
+			throw new Exception("O Hash está cheio!");
 		}
 
 	}
 
 	public boolean busca(int elemento) throws Exception {
 		if (numElem == 0) {
-			throw new Exception("Hash vazio");
+			throw new Exception("Hash Vazio");
 		}
 		int indice = elemento % modulo;
 		boolean achei = true;
@@ -88,11 +89,11 @@ public class Hash {
 
 	public void exclui(int elemento) throws Exception {
 		if (numElem == 0) {
-			throw new Exception("Hash vazio");
+			throw new Exception("Hash Vazio");
 		}
 		int indice = elemento % modulo;
 		if (hash[indice][1] == -2) {
-			throw new Exception("Nao existe nenhum elemento inserido neste modulo");
+			throw new Exception("Não existe nenhum elemento inserido neste módulo");
 		}
 		if (hash[indice][0] == elemento) {
 			if (hash[indice][1] == -1) {
@@ -119,7 +120,7 @@ public class Hash {
 						numElem--;
 						excluido = true;
 					} else {
-						throw new Exception("O elemento " + elemento + " não se enocntra na hash.");
+						throw new Exception("O elemento " + elemento + " não se encontra no Hash.");
 					}
 
 				} else if (hash[proximo][0] == elemento) {
@@ -139,7 +140,7 @@ public class Hash {
 
 	public void listarTodos() {
 		for (int i = 0; i < this.tamanho; i++) {
-			System.out.println("Índice: "+ i + " / Dado: " + hash[i][0] + " / Proximo: " + hash[i][1]);
+			System.out.println("Índice: "+ i + " / Dado: " + hash[i][0] + " / Próximo: " + hash[i][1]);
 			//System.out.println("Proximo: " + hash[i][1]);
 		}
 	}
